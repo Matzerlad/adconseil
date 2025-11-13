@@ -22,9 +22,6 @@ export const Header = () => {
             <Link to="/immobilier" className={`px-3 py-1.5 rounded-full border border-transparent hover:bg-muted transition-colors ${location.pathname === "/immobilier" ? "bg-muted" : ""}`}>
               Immobilier
             </Link>
-            <Link to="/#zones" className="px-3 py-1.5 rounded-full border border-transparent hover:bg-muted transition-colors">
-              Zones d'intervention
-            </Link>
             <Link to="/patrimoine" className="px-4 py-1.5 rounded-full bg-accent text-accent-foreground font-medium hover:opacity-90 transition-all hover:shadow-lg">
               Prendre rendez-vous
             </Link>
@@ -43,9 +40,6 @@ export const Header = () => {
             </Link>
             <Link to="/immobilier" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-left rounded-lg hover:bg-muted transition-colors">
               Immobilier
-            </Link>
-            <Link to="/#zones" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 text-left rounded-lg hover:bg-muted transition-colors">
-              Zones d'intervention
             </Link>
             <Link to="/patrimoine" onClick={() => setMobileMenuOpen(false)} className="px-3 py-2 rounded-lg bg-accent text-accent-foreground font-medium">
               Prendre rendez-vous
