@@ -1,11 +1,6 @@
+import { Link } from "react-router-dom";
+
 export const Hero = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.querySelector(id);
-    if (element) {
-      const y = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
 
   return (
     <section className="py-12 md:py-16">
@@ -25,8 +20,8 @@ export const Hero = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-4">
-              <button
-                onClick={() => scrollToSection("#patrimoine")}
+              <Link
+                to="/patrimoine"
                 className="flex-1 rounded-[24px] border border-border p-4 flex justify-between items-center cursor-pointer bg-card hover:shadow-md hover:-translate-y-0.5 transition-all hover:border-accent/35"
               >
                 <div className="text-left">
@@ -36,10 +31,10 @@ export const Hero = () => {
                   </div>
                 </div>
                 <div className="text-xl text-accent">↗</div>
-              </button>
+              </Link>
 
-              <button
-                onClick={() => scrollToSection("#immobilier")}
+              <Link
+                to="/immobilier"
                 className="flex-1 rounded-[24px] border border-border p-4 flex justify-between items-center cursor-pointer bg-card hover:shadow-md hover:-translate-y-0.5 transition-all hover:border-accent/35"
               >
                 <div className="text-left">
@@ -49,7 +44,7 @@ export const Hero = () => {
                   </div>
                 </div>
                 <div className="text-xl text-accent">↗</div>
-              </button>
+              </Link>
             </div>
 
             <p className="text-xs text-muted-foreground">

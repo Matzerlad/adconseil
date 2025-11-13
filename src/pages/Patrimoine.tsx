@@ -1,21 +1,17 @@
 import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Zones } from "@/components/Zones";
-import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { Patrimoine } from "@/components/Patrimoine";
 
-const Index = () => {
+const PatrimoinePage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
-        <Hero />
-        <Zones />
-        <Contact />
+        <Patrimoine />
       </main>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default PatrimoinePage;
