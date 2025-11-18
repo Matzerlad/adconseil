@@ -254,6 +254,65 @@ export const Patrimoine = () => {
           </div>
         </div>
 
+        <div className="mb-8">
+          <h3 className="text-xl font-bold mb-2">Témoignages clients</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Découvrez les retours d'expérience de nos clients accompagnés par AD Investissement Conseil.
+          </p>
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="rounded-[18px] border border-border p-5 bg-card">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-sm font-medium">
+                  MC
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Marie C.</div>
+                  <div className="text-xs text-muted-foreground">Chef d'entreprise</div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                "Grâce à l'accompagnement d'Arnaud Doria, j'ai pu optimiser ma structure patrimoniale et préparer 
+                sereinement ma retraite. Son expertise et sa disponibilité font toute la différence. Je recommande 
+                vivement ses services."
+              </p>
+            </div>
+
+            <div className="rounded-[18px] border border-border p-5 bg-card">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-sm font-medium">
+                  JL
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Jean-Luc P.</div>
+                  <div className="text-xs text-muted-foreground">Profession libérale</div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                "Un accompagnement global et personnalisé qui a répondu à toutes mes attentes. La stratégie fiscale 
+                mise en place m'a permis d'optimiser significativement ma situation tout en sécurisant l'avenir de 
+                ma famille."
+              </p>
+            </div>
+
+            <div className="rounded-[18px] border border-border p-5 bg-card">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-sm font-medium">
+                  SD
+                </div>
+                <div>
+                  <div className="text-sm font-medium">Sophie D.</div>
+                  <div className="text-xs text-muted-foreground">Cadre dirigeante</div>
+                </div>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                "Une approche professionnelle et bienveillante. Les conseils d'AD Investissement m'ont permis de 
+                diversifier mes investissements et de structurer efficacement la transmission de mon patrimoine. 
+                Un partenaire de confiance."
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="rounded-[18px] border border-border p-6 bg-card">
           <div className="inline-flex items-center gap-2 text-[11px] px-2 py-1 rounded-full border border-border/50 bg-muted/50 mb-3">
             <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
