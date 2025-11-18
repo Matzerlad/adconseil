@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted-foreground: 0 0% 42%;
 
     --accent: 42 36% 55%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -38,8 +38,7 @@ All colors MUST be HSL.
 
     --radius: 1.125rem;
     
-    --accent-soft: 45 60% 92%;
-    --dark: 0 0% 7%;
+    --accent-soft: 42 36% 55% / 0.08;
     --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
 
     --sidebar-background: 0 0% 98%;

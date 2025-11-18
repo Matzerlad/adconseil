@@ -1,13 +1,13 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import PatrimoineSection from "@/components/Patrimoine";
+import { Patrimoine } from "@/components/Patrimoine";
 
 const PatrimoinePage = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">
-        <PatrimoineSection />
+        <Patrimoine />
       </main>
       <Footer />
     </div>

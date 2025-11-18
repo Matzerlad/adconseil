@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -14,18 +12,18 @@ export const Footer = () => {
               de Nanterre).
             </div>
             <div className="flex flex-wrap gap-3 mt-3">
-              <Link to="/patrimoine" className="underline decoration-dotted hover:text-foreground">
+              <a href="#patrimoine" className="underline decoration-dotted hover:text-foreground">
                 Gestion de patrimoine
-              </Link>
-              <Link to="/immobilier" className="underline decoration-dotted hover:text-foreground">
+              </a>
+              <a href="#immobilier" className="underline decoration-dotted hover:text-foreground">
                 Immobilier
-              </Link>
+              </a>
               <a href="#contact" className="underline decoration-dotted hover:text-foreground">
                 Contact
               </a>
-              <Link to="/mentions-legales" className="underline decoration-dotted hover:text-foreground">
+              <a href="#" className="underline decoration-dotted hover:text-foreground">
                 Mentions légales
-              </Link>
+              </a>
               <a href="#" className="underline decoration-dotted hover:text-foreground">
                 Politique de confidentialité
               </a>
