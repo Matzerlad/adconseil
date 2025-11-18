@@ -86,13 +86,103 @@ export const Patrimoine = () => {
   return (
     <section id="patrimoine" className="py-12 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="max-w-2xl mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Gestion de patrimoine</h2>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+        <div className="max-w-3xl mb-8">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">Gestion de patrimoine</h2>
+          <p className="text-sm text-muted-foreground leading-relaxed mb-6">
             Un accompagnement global, structuré et indépendant, piloté par{" "}
             <strong className="text-foreground">Arnaud Doria</strong>, professionnel expérimenté de la gestion de
             patrimoine et responsable de troisième cycle à l'ESLSCA Business School Paris.
           </p>
+          
+          <div className="rounded-[18px] border border-border p-6 bg-card mb-6">
+            <h3 className="text-lg font-semibold mb-3">La gestion de patrimoine avec AD Investissement Conseil</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              C'est l'assurance de bénéficier des meilleurs placements, en vue de les augmenter, de les transmettre, 
+              de bénéficier de revenus, et ceci en toute sécurité, selon la situation personnelle de chacun de nos clients. 
+              Quelques exemples : Investissement / Épargne longue ou rendement assuré et disponibilité du capital, 
+              transmission exonérée de droits de succession...
+            </p>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-4 mb-8">
+          <div className="rounded-[18px] border border-border p-5 bg-card">
+            <h3 className="font-semibold mb-2 text-base">Les Méthodes</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              L'étude de la situation personnelle de nos clients va nous permettre de proposer des modifications de leur 
+              structure patrimoniale et d'en améliorer les performances. Comme chaque cas est particulier, seule une étude 
+              personnelle peut nous permettre de conseiller des solutions adaptées ; que ce soit sous la forme de modifications 
+              patrimoniales ou par le biais de solutions d'investissements.
+            </p>
+          </div>
+          
+          <div className="rounded-[18px] border border-border p-5 bg-card">
+            <h3 className="font-semibold mb-2 text-base">Les Moyens</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              Parfois il s'agit simplement d'un acte juridique, notarié ou déclaratif, souvent, cela peut être par le 
+              biais d'un support financier : immobilier, assurance-vie, loi Madelin...
+            </p>
+          </div>
+          
+          <div className="rounded-[18px] border border-border p-5 bg-card">
+            <h3 className="font-semibold mb-2 text-base">Les Raisons</h3>
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              De simples aménagements peuvent permettre d'améliorer très fortement le patrimoine de nos clients ou de 
+              répondre à leurs objectifs. (Préparation de retraite, donation, démembrement...)
+            </p>
+          </div>
+        </div>
+
+        <div className="rounded-[18px] border border-border p-6 bg-card mb-8">
+          <h3 className="text-xl font-semibold mb-4">Choisir AD Investissement Conseil</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            C'est bénéficier d'un conseil en fonction de ces objectifs et de la sensibilité de chacun tenant compte 
+            de motivations différentes.
+          </p>
+          <p className="text-sm font-medium mb-3">Voici, en quelques étapes, la façon dont nous procédons :</p>
+          <ul className="space-y-2 text-sm text-muted-foreground">
+            <li className="flex gap-2">
+              <span className="text-accent">•</span>
+              <span>Bilan de situation fiscale et financière.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-accent">•</span>
+              <span>Prise en compte des motivations.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-accent">•</span>
+              <span>Propositions de notre part afin d'établir une stratégie.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-accent">•</span>
+              <span>Finalisation du projet.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold mb-4">Notre champ d'action</h3>
+          <div className="rounded-[18px] border border-border p-6 bg-card space-y-4">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Nous sélectionnons des programmes immobiliers parmi ceux de nos partenaires. Ou tout autre support 
+              susceptible d'intéresser nos clients.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Nous sommes spécialisés dans les investissements immobiliers défiscalisants du type Besson, loi Demessine (ZRR), 
+              LMP, Monuments Historiques, Loi Malraux, lois Pinel...
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Mais nous intervenons aussi dans le cadre plus classique de la vente immobilière en résidence principale 
+              ou secondaire : Nous commercialisons des immeubles neufs, des appartements anciens confiés par des 
+              institutionnels ou par des particuliers.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Nous proposons également des biens de prestige.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Notre champ d'activité ne se limite pas à ces possibilités, même si elles constituent le cœur de notre métier.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4 mb-8">
