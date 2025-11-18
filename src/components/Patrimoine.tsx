@@ -1,7 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "sonner";
 
-export const Patrimoine = () => {
+export default function PatrimoineSection() {
   const [formData, setFormData] = useState({
     nom: "",
     email: "",
