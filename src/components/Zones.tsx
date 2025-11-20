@@ -1,3 +1,5 @@
+import { ParisMap } from "./ParisMap";
+
 export const Zones = () => {
   const zones = [
     "Paris 7e",
@@ -27,7 +29,7 @@ export const Zones = () => {
             <h3 className="text-sm uppercase tracking-[0.16em] font-medium mb-3">
               Paris & proche ouest
             </h3>
-            <div className="flex flex-wrap gap-2.5">
+            <div className="flex flex-wrap gap-2.5 mb-6">
               {zones.map((zone) => (
                 <span 
                   key={zone}
@@ -37,18 +39,18 @@ export const Zones = () => {
                 </span>
               ))}
             </div>
+            
+            <div className="rounded-2xl border border-border bg-gradient-to-br from-card to-background p-5 text-xs text-muted-foreground">
+              <p>
+                Les biens suivis sont principalement situés sur l'axe{" "}
+                <strong className="text-foreground">Paris 7e & 8e – 16e – Neuilly-sur-Seine – Ouest parisien</strong>,
+                où la demande reste structurellement forte pour les biens de qualité.
+              </p>
+            </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-card to-background p-5 text-xs text-muted-foreground">
-            <p className="mb-4">
-              Les biens suivis sont principalement situés sur l'axe{" "}
-              <strong className="text-foreground">Paris 7e & 8e – 16e – Neuilly-sur-Seine – Ouest parisien</strong>,
-              où la demande reste structurellement forte pour les biens de qualité.
-            </p>
-            <div className="rounded-xl border border-dashed border-border p-5 text-center text-[0.7rem]">
-              Espace disponible pour une carte interactive, une photo de quartier ou un plan de Paris.
-              Vous pourrez l'actualiser librement (intégration image ou iframe).
-            </div>
+          <div>
+            <ParisMap />
           </div>
         </div>
       </div>
