@@ -61,8 +61,8 @@ export const ParisMap = () => {
                              '#FED976';
     };
 
-    const formatPrice = (v: number | null): string => {
-      if (!v) return "N/A";
+    const formatPrice = (v: number | null | undefined): string => {
+      if (!v) return "Donnée non disponible";
       return v.toLocaleString('fr-FR', { maximumFractionDigits: 0 }) + " €/m²";
     };
 
@@ -107,11 +107,16 @@ export const ParisMap = () => {
               const prix = prixM2[commune.nom];
               const name = feature.properties?.nom || commune.nom;
               
+              // Log pour debug
+              if (!prix) {
+                console.log(`Prix manquant pour commune: ${name} (clé: ${commune.nom})`);
+              }
+              
               layer.bindPopup(`
                 <div style="font-family: Inter, sans-serif; font-size: 0.9rem; padding: 4px;">
                   <strong style="color: #c6a667; font-size: 1rem;">${name}</strong><br>
                   <span style="color: #4b5563;">Prix moyen : </span>
-                  <strong style="color: #111827;">${formatPrice(prix)}</strong><br>
+                  <strong style="color: ${prix ? '#111827' : '#9ca3af'};">${formatPrice(prix)}</strong><br>
                   <small style="color: #6b7280; font-size: 0.75rem;">${prixSourceDate}</small>
                 </div>
               `);
@@ -173,11 +178,16 @@ export const ParisMap = () => {
             const prix = prixM2[key];
             const name = `Paris ${num}ᵉ`;
             
+            // Log pour debug
+            if (!prix) {
+              console.log(`Prix manquant pour arrondissement: ${name} (clé: ${key})`);
+            }
+            
             layer.bindPopup(`
               <div style="font-family: Inter, sans-serif; font-size: 0.9rem; padding: 4px;">
                 <strong style="color: #c6a667; font-size: 1rem;">${name}</strong><br>
                 <span style="color: #4b5563;">Prix moyen : </span>
-                <strong style="color: #111827;">${formatPrice(prix)}</strong><br>
+                <strong style="color: ${prix ? '#111827' : '#9ca3af'};">${formatPrice(prix)}</strong><br>
                 <small style="color: #6b7280; font-size: 0.75rem;">${prixSourceDate}</small>
               </div>
             `);
