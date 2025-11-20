@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { ParisMapPrices } from "./ParisMapPrices";
 
 interface Property {
   id: number;
@@ -239,8 +240,23 @@ export const Immobilier = () => {
         </div>
       </section>
 
+      {/* CARTE DES PRIX PAR ARRONDISSEMENT */}
+      <section className="py-12 md:py-16 bg-[#f1f0ec]">
+        <div className="container mx-auto px-4">
+          <div className="mb-6">
+            <div className="text-xs uppercase tracking-[0.18em] text-accent mb-2">Prix du marché</div>
+            <h2 className="text-2xl font-playfair font-semibold mb-2">Prix au m² par arrondissement de Paris.</h2>
+            <p className="text-sm text-muted-foreground max-w-2xl">
+              Consultez les prix moyens au mètre carré pour chaque arrondissement de Paris. Ces données sont mises à jour
+              régulièrement pour refléter les tendances actuelles du marché immobilier parisien.
+            </p>
+          </div>
+          <ParisMapPrices />
+        </div>
+      </section>
+
       {/* LISTE DE BIENS */}
-      <section id="properties" className="py-12 md:py-16 bg-[#f1f0ec]">
+      <section id="properties" className="py-12 md:py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="mb-8">
             <div className="text-xs uppercase tracking-[0.18em] text-accent mb-2">Biens proposés</div>
