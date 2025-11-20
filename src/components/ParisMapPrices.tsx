@@ -142,9 +142,7 @@ export const ParisMapPrices = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {geoData && (
-            <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />
-          )}
+          <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />
         </MapContainer>
       </div>
 
