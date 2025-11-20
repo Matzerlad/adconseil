@@ -17,27 +17,27 @@ export const ParisMap = () => {
       attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
-    // Prix au m² - données actualisées (sources: MeilleursAgents, Le Figaro, Notaires)
+    // Prix au m² - Estimations 2025 (sources: Notaires Grand Paris, Economie Matin, MediaSeine)
     const prixM2: Record<string, number> = {
-      // Paris arrondissements
-      "Paris-1": 12500,
-      "Paris-2": 11000,
-      "Paris-3": 11400,
-      "Paris-4": 13200,
-      "Paris-5": 12000,
-      "Paris-6": 13270,
-      "Paris-7": 14000,
-      "Paris-8": 11500,
-      "Paris-9": 10600,
-      "Paris-10": 9000,
-      "Paris-11": 9800,
-      "Paris-12": 8700,
-      "Paris-13": 8500,
-      "Paris-14": 9400,
-      "Paris-15": 9300,
-      "Paris-16": 10800,
-      "Paris-17": 10000,
-      "Paris-18": 8800,
+      // Paris arrondissements - données actualisées 2025
+      "Paris-1": 12440,
+      "Paris-2": 11600,
+      "Paris-3": 11820,
+      "Paris-4": 12120,
+      "Paris-5": 11340,
+      "Paris-6": 13380,
+      "Paris-7": 13410,
+      "Paris-8": 10530,
+      "Paris-9": 9770,
+      "Paris-10": 8980,
+      "Paris-11": 9470,
+      "Paris-12": 8370,
+      "Paris-13": 8350,
+      "Paris-14": 8840,
+      "Paris-15": 8900,
+      "Paris-16": 10160,
+      "Paris-17": 9260,
+      "Paris-18": 8380,
       "Paris-19": 7530,
       "Paris-20": 8080,
       // Communes voisines
@@ -47,15 +47,17 @@ export const ParisMap = () => {
       "Courbevoie": 7365,
     };
 
+    const prixSourceDate = "Estimations 2025 – sources : Notaires Grand Paris, Economie Matin, MediaSeine";
+
     // Fonction pour obtenir une couleur selon le prix
     const getColor = (price: number | null): string => {
       if (!price) return '#71717a';
-      return price > 12000 ? '#c6a667' :
-             price > 10000 ? '#d4b578' :
-             price > 9000  ? '#e2c589' :
-             price > 8000  ? '#f0d59a' :
-             price > 7000  ? '#fde5ab' :
-                             '#fef5dc';
+      return price > 13000 ? '#800026' :
+             price > 12000 ? '#BD0026' :
+             price > 10000 ? '#E31A1C' :
+             price > 9000  ? '#FC4E2A' :
+             price > 8000  ? '#FD8D3C' :
+                             '#FED976';
     };
 
     const formatPrice = (v: number | null): string => {
@@ -106,13 +108,13 @@ export const ParisMap = () => {
               const name = feature.properties?.nom || commune.nom;
               
               layer.bindPopup(`
-                <div style="font-family: Inter, sans-serif; font-size: 0.85rem;">
-                  <strong style="color: #c6a667; font-size: 0.95rem;">${name}</strong><br>
-                  <span style="color: #71717a;">Prix moyen estimé : </span>
-                  <strong>${formatPrice(prix)}</strong><br>
-                  <small style="color: #a1a1aa; font-size: 0.75rem;">Sources : MeilleursAgents, Le Figaro, Notaires</small>
-                </div>
-              `);
+              <div style="font-family: Inter, sans-serif; font-size: 0.85rem;">
+                <strong style="color: #c6a667; font-size: 0.95rem;">${name}</strong><br>
+                <span style="color: #71717a;">Prix moyen : </span>
+                <strong>${formatPrice(prix)}</strong><br>
+                <small style="color: #a1a1aa; font-size: 0.75rem;">${prixSourceDate}</small>
+              </div>
+            `);
 
               // Hover effect
               layer.on('mouseover', function() {
@@ -170,7 +172,7 @@ export const ParisMap = () => {
             const num = feature.properties.C_AR;
             const key = `Paris-${num}`;
             const prix = prixM2[key];
-            const name = feature.properties.L_AR || `Paris ${num}`;
+            const name = `Paris ${num}ᵉ`;
             
             layer.bindPopup(`
               <div style="font-family: Inter, sans-serif; font-size: 0.85rem;">
@@ -224,32 +226,32 @@ export const ParisMap = () => {
         className="rounded-xl border border-border h-[650px] w-full"
         style={{ background: 'hsl(var(--card))' }}
       />
-      <div className="absolute bottom-4 right-4 bg-card/95 border border-border backdrop-blur-sm rounded-lg p-3 text-xs">
-        <div className="font-medium text-accent-soft mb-2">Prix au m²</div>
-        <div className="flex flex-col gap-1">
+      <div className="absolute bottom-4 right-4 bg-card/95 border border-border backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
+        <div className="font-medium text-foreground mb-2">Prix €/m²</div>
+        <div className="flex flex-col gap-1.5">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#c6a667' }}></div>
-            <span className="text-muted-foreground">&gt; 12 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#800026' }}></div>
+            <span className="text-muted-foreground">&gt; 13 000</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#d4b578' }}></div>
-            <span className="text-muted-foreground">10 000 - 12 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#BD0026' }}></div>
+            <span className="text-muted-foreground">12 000 - 13 000</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#e2c589' }}></div>
-            <span className="text-muted-foreground">9 000 - 10 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#E31A1C' }}></div>
+            <span className="text-muted-foreground">10 000 - 12 000</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#f0d59a' }}></div>
-            <span className="text-muted-foreground">8 000 - 9 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#FC4E2A' }}></div>
+            <span className="text-muted-foreground">9 000 - 10 000</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#fde5ab' }}></div>
-            <span className="text-muted-foreground">7 000 - 8 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#FD8D3C' }}></div>
+            <span className="text-muted-foreground">8 000 - 9 000</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-3 rounded" style={{ backgroundColor: '#fef5dc' }}></div>
-            <span className="text-muted-foreground">&lt; 7 000 €</span>
+            <div className="w-5 h-3 rounded" style={{ backgroundColor: '#FED976' }}></div>
+            <span className="text-muted-foreground">&lt; 8 000</span>
           </div>
         </div>
       </div>
