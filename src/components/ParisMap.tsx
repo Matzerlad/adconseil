@@ -159,11 +159,24 @@ export const ParisMap = () => {
 
         const geojson = await response.json();
         
+        // Log pour voir la structure des données
+        console.log('Premier feature de l\'API:', geojson.features[0]);
+        
         L.geoJSON(geojson, {
           style: (feature) => {
-            const num = feature?.properties?.C_AR;
-            const key = `Paris-${num}`;
-            const prix = prixM2[key] || null;
+            // Essayer plusieurs propriétés possibles
+            const num = feature?.properties?.C_AR || 
+                       feature?.properties?.c_ar || 
+                       feature?.properties?.code || 
+                       feature?.properties?.CODE ||
+                       feature?.properties?.arr ||
+                       null;
+            
+            console.log('Feature properties:', feature?.properties, 'num extrait:', num);
+            
+            const key = num ? `Paris-${num}` : null;
+            const prix = key ? prixM2[key] : null;
+            
             return {
               fillColor: getColor(prix),
               weight: 1,
@@ -173,14 +186,27 @@ export const ParisMap = () => {
             };
           },
           onEachFeature: (feature, layer) => {
-            const num = feature.properties.C_AR;
-            const key = `Paris-${num}`;
-            const prix = prixM2[key];
-            const name = `Paris ${num}ᵉ`;
+            // Essayer plusieurs propriétés possibles
+            const num = feature?.properties?.C_AR || 
+                       feature?.properties?.c_ar || 
+                       feature?.properties?.code || 
+                       feature?.properties?.CODE ||
+                       feature?.properties?.arr ||
+                       null;
+            
+            const nameFromApi = feature?.properties?.L_AR || 
+                               feature?.properties?.l_ar || 
+                               feature?.properties?.nom ||
+                               feature?.properties?.NOM ||
+                               null;
+            
+            const key = num ? `Paris-${num}` : null;
+            const prix = key ? prixM2[key] : null;
+            const name = nameFromApi || (num ? `Paris ${num}ᵉ` : 'Paris (arrondissement inconnu)');
             
             // Log pour debug
-            if (!prix) {
-              console.log(`Prix manquant pour arrondissement: ${name} (clé: ${key})`);
+            if (!prix || !num) {
+              console.log(`Prix ou numéro manquant - Arrondissement: ${name}, num: ${num}, clé: ${key}, properties:`, feature.properties);
             }
             
             layer.bindPopup(`
