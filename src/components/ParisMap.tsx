@@ -108,13 +108,13 @@ export const ParisMap = () => {
               const name = feature.properties?.nom || commune.nom;
               
               layer.bindPopup(`
-              <div style="font-family: Inter, sans-serif; font-size: 0.85rem;">
-                <strong style="color: #c6a667; font-size: 0.95rem;">${name}</strong><br>
-                <span style="color: #71717a;">Prix moyen : </span>
-                <strong>${formatPrice(prix)}</strong><br>
-                <small style="color: #a1a1aa; font-size: 0.75rem;">${prixSourceDate}</small>
-              </div>
-            `);
+                <div style="font-family: Inter, sans-serif; font-size: 0.9rem; padding: 4px;">
+                  <strong style="color: #c6a667; font-size: 1rem;">${name}</strong><br>
+                  <span style="color: #4b5563;">Prix moyen : </span>
+                  <strong style="color: #111827;">${formatPrice(prix)}</strong><br>
+                  <small style="color: #6b7280; font-size: 0.75rem;">${prixSourceDate}</small>
+                </div>
+              `);
 
               // Hover effect
               layer.on('mouseover', function() {
@@ -174,11 +174,11 @@ export const ParisMap = () => {
             const name = `Paris ${num}ᵉ`;
             
             layer.bindPopup(`
-              <div style="font-family: Inter, sans-serif; font-size: 0.85rem;">
-                <strong style="color: #c6a667; font-size: 0.95rem;">${name}</strong><br>
-                <span style="color: #71717a;">Prix moyen : </span>
-                <strong>${formatPrice(prix)}</strong><br>
-                <small style="color: #a1a1aa; font-size: 0.75rem;">Sources : MeilleursAgents, Le Figaro, Notaires</small>
+              <div style="font-family: Inter, sans-serif; font-size: 0.9rem; padding: 4px;">
+                <strong style="color: #c6a667; font-size: 1rem;">${name}</strong><br>
+                <span style="color: #4b5563;">Prix moyen : </span>
+                <strong style="color: #111827;">${formatPrice(prix)}</strong><br>
+                <small style="color: #6b7280; font-size: 0.75rem;">${prixSourceDate}</small>
               </div>
             `);
 
@@ -222,7 +222,7 @@ export const ParisMap = () => {
     <div className="relative">
       <div 
         ref={mapRef} 
-        className="rounded-xl border border-border h-[660px] w-full"
+        className="rounded-xl border border-border h-[680px] w-full"
         style={{ background: 'hsl(var(--card))' }}
       />
       <div className="absolute bottom-4 right-4 bg-card/95 border border-border backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
