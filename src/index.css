@@ -8,85 +8,79 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 7%;
+    /* Dark theme by default with gold accent */
+    --background: 212 14% 3%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 7%;
+    --card: 216 19% 6%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 7%;
+    --popover: 216 19% 6%;
+    --popover-foreground: 0 0% 96%;
 
     --primary: 42 36% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 7%;
+    --secondary: 216 19% 10%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 42%;
+    --muted: 217 14% 12%;
+    --muted-foreground: 0 0% 63%;
 
     --accent: 42 36% 55%;
-    --accent-foreground: 0 0% 0%;
+    --accent-foreground: 220 13% 9%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 42 36% 55%;
 
     --radius: 1.125rem;
     
     --accent-soft: 45 60% 92%;
-    --dark: 0 0% 7%;
-    --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.05);
+    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 98%;
+    --background: 212 14% 3%;
+    --foreground: 0 0% 96%;
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 216 19% 6%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 216 19% 6%;
+    --popover-foreground: 0 0% 96%;
 
     --primary: 42 36% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 216 19% 10%;
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 217 14% 12%;
+    --muted-foreground: 0 0% 63%;
 
     --accent: 42 36% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent-foreground: 220 13% 9%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 42 36% 55%;
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -105,6 +99,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    background: radial-gradient(circle at top left, hsl(218 19% 9%), hsl(212 14% 3%));
   }
   
   h1, h2, h3, h4, h5, h6 {
