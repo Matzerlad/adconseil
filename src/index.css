@@ -8,39 +8,39 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark theme by default with gold accent */
-    --background: 212 14% 3%;
-    --foreground: 0 0% 96%;
+    /* Light theme elegant - fond blanc */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
 
-    --card: 216 19% 6%;
-    --card-foreground: 0 0% 96%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 216 19% 6%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
     --primary: 42 36% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 216 19% 10%;
-    --secondary-foreground: 0 0% 96%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 217 14% 12%;
-    --muted-foreground: 0 0% 63%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
 
     --accent: 42 36% 55%;
-    --accent-foreground: 220 13% 9%;
+    --accent-foreground: 222 47% 11%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
     --ring: 42 36% 55%;
 
     --radius: 1.125rem;
     
     --accent-soft: 45 60% 92%;
-    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+    --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.06);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -53,6 +53,7 @@ All colors MUST be HSL.
   }
 
   .dark {
+    /* Keep dark mode for users who prefer it */
     --background: 212 14% 3%;
     --foreground: 0 0% 96%;
 
@@ -99,7 +100,7 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    background: radial-gradient(circle at top left, hsl(218 19% 9%), hsl(212 14% 3%));
+    background: linear-gradient(to bottom, #ffffff, #f3f4f6);
   }
   
   h1, h2, h3, h4, h5, h6 {

@@ -24,10 +24,10 @@ export const Contact = () => {
   return (
     <section id="contact" className="py-12">
       <div className="container mx-auto px-4">
-        <div className="rounded-3xl border border-border bg-gradient-to-br from-card to-background p-6 md:p-8">
+        <div className="rounded-3xl border border-border bg-white p-6 md:p-8 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
           <div className="grid md:grid-cols-[1.1fr_1fr] gap-6">
             <div>
-              <h2 className="text-lg uppercase tracking-[0.16em] font-bold mb-3">
+              <h2 className="text-lg font-serif font-semibold tracking-wide mb-3">
                 Entrer en contact
               </h2>
               <p className="text-sm text-muted-foreground mb-6 max-w-[26rem]">
@@ -68,7 +68,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="Votre nom"
-                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-background/90 focus:outline-none focus:border-accent/70 transition-colors"
+                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -84,7 +84,7 @@ export const Contact = () => {
                   onChange={handleChange}
                   required
                   placeholder="vous@exemple.com"
-                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-background/90 focus:outline-none focus:border-accent/70 transition-colors"
+                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -99,7 +99,7 @@ export const Contact = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+33 ..."
-                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-background/90 focus:outline-none focus:border-accent/70 transition-colors"
+                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
 
@@ -115,13 +115,13 @@ export const Contact = () => {
                   required
                   rows={4}
                   placeholder="Type de bien, secteur, projet (cession, acquisition, bail, arbitrage...), échéance souhaitée..."
-                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-background/90 focus:outline-none focus:border-accent/70 transition-colors resize-vertical"
+                  className="w-full rounded-xl border border-input px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-accent transition-colors resize-vertical"
                 />
               </div>
 
               <button
                 type="submit"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-soft to-accent text-accent-foreground text-sm font-medium hover:shadow-lg transition-all hover:-translate-y-0.5 w-full justify-center"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#f8e9c8] to-accent text-foreground text-sm font-medium hover:shadow-lg transition-all hover:-translate-y-0.5 w-full justify-center shadow-[0_10px_25px_rgba(148,163,184,0.35)]"
               >
                 <span>➤</span>
                 <span>Envoyer la demande</span>
