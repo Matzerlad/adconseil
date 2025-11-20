@@ -17,37 +17,38 @@ export const ParisMap = () => {
       attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
-    // Prix au m² - Estimations 2025 (sources: Notaires Grand Paris, Economie Matin, MediaSeine)
+    // Prix au m² - Sources : Notaires T2 2025 pour Paris ; MeilleursAgents / Le Figaro pour communes proches
     const prixM2: Record<string, number> = {
-      // Paris arrondissements - données actualisées 2025
-      "Paris-1": 12440,
-      "Paris-2": 11600,
-      "Paris-3": 11820,
-      "Paris-4": 12120,
-      "Paris-5": 11340,
-      "Paris-6": 13380,
-      "Paris-7": 13410,
-      "Paris-8": 10530,
-      "Paris-9": 9770,
-      "Paris-10": 8980,
-      "Paris-11": 9470,
-      "Paris-12": 8370,
-      "Paris-13": 8350,
-      "Paris-14": 8840,
-      "Paris-15": 8900,
-      "Paris-16": 10160,
-      "Paris-17": 9260,
-      "Paris-18": 8380,
-      "Paris-19": 7530,
-      "Paris-20": 8080,
-      // Communes voisines
-      "Neuilly-sur-Seine": 10713,
-      "Levallois-Perret": 10608,
+      // Paris arrondissements - données officielles Notaires T2 2025
+      // Source: "Historique des prix au m² standardisés des appartements anciens à Paris par arrondissement"
+      "Paris-1": 11830,
+      "Paris-2": 10870,
+      "Paris-3": 12760,
+      "Paris-4": 12680,
+      "Paris-5": 11350,
+      "Paris-6": 13310,
+      "Paris-7": 12830,
+      "Paris-8": 11710,
+      "Paris-9": 10110,
+      "Paris-10": 8870,
+      "Paris-11": 9290,
+      "Paris-12": 8500,
+      "Paris-13": 8500,
+      "Paris-14": 9060,
+      "Paris-15": 8880,
+      "Paris-16": 10040,
+      "Paris-17": 9280,
+      "Paris-18": 8410,
+      "Paris-19": 7430,
+      "Paris-20": 8070,
+      // Communes proches - MeilleursAgents / Le Figaro
+      "Neuilly-sur-Seine": 10719,
+      "Levallois-Perret": 8840,
       "Boulogne-Billancourt": 8611,
-      "Courbevoie": 7365,
+      "Courbevoie": 6445,
     };
 
-    const prixSourceDate = "Estimations 2025 – sources : Notaires Grand Paris, Economie Matin, MediaSeine";
+    const prixSourceDate = "Sources : Notaires (T2 2025) pour arrondissements Paris ; MeilleursAgents / Le Figaro pour communes proches.";
 
     // Fonction pour obtenir une couleur selon le prix
     const getColor = (price: number | null): string => {
@@ -96,11 +97,10 @@ export const ParisMap = () => {
               const prix = prixM2[commune.nom] || null;
               return {
                 fillColor: getColor(prix),
-                weight: 1.5,
+                weight: 1,
                 opacity: 1,
-                color: 'rgba(255, 255, 255, 0.6)',
-                dashArray: '2',
-                fillOpacity: 0.65,
+                color: '#ffffff',
+                fillOpacity: 0.75,
               };
             },
             onEachFeature: (feature, layer) => {
@@ -161,11 +161,10 @@ export const ParisMap = () => {
             const prix = prixM2[key] || null;
             return {
               fillColor: getColor(prix),
-              weight: 1.5,
+              weight: 1,
               opacity: 1,
-              color: 'rgba(255, 255, 255, 0.6)',
-              dashArray: '2',
-              fillOpacity: 0.65,
+              color: '#ffffff',
+              fillOpacity: 0.75,
             };
           },
           onEachFeature: (feature, layer) => {
@@ -223,7 +222,7 @@ export const ParisMap = () => {
     <div className="relative">
       <div 
         ref={mapRef} 
-        className="rounded-xl border border-border h-[650px] w-full"
+        className="rounded-xl border border-border h-[660px] w-full"
         style={{ background: 'hsl(var(--card))' }}
       />
       <div className="absolute bottom-4 right-4 bg-card/95 border border-border backdrop-blur-sm rounded-lg p-3 text-xs shadow-lg">
@@ -254,6 +253,9 @@ export const ParisMap = () => {
             <span className="text-muted-foreground">&lt; 8 000</span>
           </div>
         </div>
+        <small className="block mt-3 text-[0.65rem] text-muted-foreground leading-tight">
+          Sources : Notaires (T2 2025) pour Paris ; MeilleursAgents / Le Figaro pour communes proches
+        </small>
       </div>
     </div>
   );
