@@ -4,7 +4,7 @@ export const Expertises = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-end gap-6 mb-7 flex-wrap">
           <div>
-            <h2 className="text-xl uppercase tracking-[0.16em] font-bold">Expertises</h2>
+            <h2 className="text-2xl font-serif font-semibold tracking-wide">Expertises</h2>
           </div>
           <p className="text-sm text-muted-foreground max-w-[26rem]">
             Une double compétence en immobilier et en approche patrimoniale permet d'aligner chaque opération
@@ -13,8 +13,8 @@ export const Expertises = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-card to-background p-5 shadow-[0_14px_36px_rgba(0,0,0,0.4)]">
-            <h3 className="text-base uppercase tracking-[0.14em] font-medium mb-2.5">
+          <div className="rounded-2xl border border-border bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+            <h3 className="text-base font-serif font-medium mb-2.5 text-foreground">
               Gestion de patrimoine
             </h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -22,7 +22,7 @@ export const Expertises = () => {
               et financiers, en cohérence avec votre horizon de temps et votre fiscalité.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
-              <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
                 Stratégie long terme
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">
@@ -34,8 +34,8 @@ export const Expertises = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-card to-background p-5 shadow-[0_14px_36px_rgba(0,0,0,0.4)]">
-            <h3 className="text-base uppercase tracking-[0.14em] font-medium mb-2.5">
+          <div className="rounded-2xl border border-border bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+            <h3 className="text-base font-serif font-medium mb-2.5 text-foreground">
               Immobilier & baux code civil
             </h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -43,7 +43,7 @@ export const Expertises = () => {
               pour une clientèle souhaitant des solutions plus souples et confidentielles que les baux classiques.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
-              <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
                 Baux code civil
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">
@@ -55,8 +55,8 @@ export const Expertises = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-gradient-to-br from-card to-background p-5 shadow-[0_14px_36px_rgba(0,0,0,0.4)]">
-            <h3 className="text-base uppercase tracking-[0.14em] font-medium mb-2.5">
+          <div className="rounded-2xl border border-border bg-white p-5 shadow-[0_18px_40px_rgba(15,23,42,0.06)]">
+            <h3 className="text-base font-serif font-medium mb-2.5 text-foreground">
               Accompagnement global
             </h3>
             <p className="text-sm text-muted-foreground mb-3">
@@ -64,7 +64,7 @@ export const Expertises = () => {
               analyse à la signature, puis accompagnement dans la mise en location ou la revente.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
-              <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">
+              <span className="text-xs px-2.5 py-1 rounded-full bg-muted border border-border text-muted-foreground">
                 Pilotage de dossier
               </span>
               <span className="text-xs px-2.5 py-1 rounded-full bg-muted/50 border border-border text-muted-foreground">

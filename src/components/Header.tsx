@@ -6,15 +6,15 @@ export const Header = () => {
   const location = useLocation();
   
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-[20px] border-b border-border/60">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-border">,
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full border border-accent/60 flex items-center justify-center text-sm font-semibold tracking-wider">
+            <div className="w-8 h-8 rounded-full bg-foreground border border-accent flex items-center justify-center text-sm font-semibold tracking-wider text-background">
               AD
             </div>
             <div className="flex flex-col gap-0">
-              <div className="text-[0.95rem] uppercase tracking-[0.12em] font-medium">
+              <div className="text-[0.95rem] tracking-[0.08em] font-medium text-foreground">
                 AD Investissement Conseil
               </div>
               <div className="text-xs text-muted-foreground">
@@ -31,16 +31,16 @@ export const Header = () => {
           </button>
 
           <nav className="hidden md:flex items-center gap-5 text-sm">
-            <a href="#expertises" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">
+            <a href="#expertises" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full">
               Expertises
             </a>
-            <a href="#zones" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">
+            <a href="#zones" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full">
               Zones d'intervention
             </a>
-            <a href="#process" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">
+            <a href="#process" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full">
               Accompagnement
             </a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[1px] after:bg-accent after:transition-all hover:after:w-full">
+            <a href="#contact" className="text-muted-foreground hover:text-foreground relative after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-accent after:transition-all hover:after:w-full">
               Contact
             </a>
           </nav>
@@ -51,7 +51,7 @@ export const Header = () => {
             </div>
             <a 
               href="#contact" 
-              className="px-5 py-2 rounded-full border border-accent/55 text-accent text-sm font-medium hover:bg-accent/5 transition-all"
+              className="px-5 py-2 rounded-full bg-white border border-accent text-foreground text-sm font-medium hover:bg-accent-soft/30 transition-all shadow-sm"
             >
               Demander un rappel
             </a>
