@@ -142,7 +142,14 @@ export const ParisMapPrices = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <GeoJSON data={geoData} style={style} onEachFeature={onEachFeature} />
+          {geoData && (
+            <GeoJSON 
+              key="paris-arrondissements" 
+              data={geoData} 
+              style={style} 
+              onEachFeature={onEachFeature} 
+            />
+          )}
         </MapContainer>
       </div>
 
