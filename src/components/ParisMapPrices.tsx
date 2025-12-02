@@ -1,19 +1,7 @@
-import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, GeoJSON, Popup } from 'react-leaflet';
+import { useEffect, useState, useRef } from 'react';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-
-interface ArondissementData {
-  type: string;
-  geometry: {
-    type: string;
-    coordinates: number[][][];
-  };
-  properties: {
-    l_ar: string;
-    c_ar: number;
-  };
-}
 
 // Prix au m² mis à jour pour chaque arrondissement de Paris (2025)
 const priceData: { [key: number]: { price: number; label: string } } = {
@@ -39,6 +27,85 @@ const priceData: { [key: number]: { price: number; label: string } } = {
   20: { price: 10100, label: '20ème' },
 };
 
+const getColor = (price: number) => {
+  if (price >= 15000) return '#8B4513';
+  if (price >= 13000) return '#A0522D';
+  if (price >= 11000) return '#CD853F';
+  if (price >= 10000) return '#DEB887';
+  return '#F5DEB3';
+};
+
+// Component to add GeoJSON layer using native Leaflet API
+const GeoJSONLayer = ({ data }: { data: any }) => {
+  const map = useMap();
+  const layerRef = useRef<L.GeoJSON | null>(null);
+
+  useEffect(() => {
+    if (!data || !map) return;
+
+    // Remove existing layer if any
+    if (layerRef.current) {
+      map.removeLayer(layerRef.current);
+    }
+
+    // Create new GeoJSON layer using native Leaflet
+    const geoJsonLayer = L.geoJSON(data, {
+      style: (feature) => {
+        const arrondissement = feature?.properties?.c_ar;
+        const priceInfo = priceData[arrondissement];
+        const price = priceInfo ? priceInfo.price : 0;
+
+        return {
+          fillColor: getColor(price),
+          weight: 2,
+          opacity: 1,
+          color: 'white',
+          fillOpacity: 0.7,
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const arrondissement = feature.properties.c_ar;
+        const priceInfo = priceData[arrondissement];
+
+        if (priceInfo) {
+          const formattedPrice = priceInfo.price.toLocaleString('fr-FR');
+          layer.bindPopup(`
+            <div style="font-family: sans-serif;">
+              <strong style="font-size: 1.1em;">Paris ${priceInfo.label}</strong><br/>
+              <span style="color: #8B4513; font-weight: 600; font-size: 1.2em;">${formattedPrice} €/m²</span>
+            </div>
+          `);
+
+          layer.on({
+            mouseover: (e) => {
+              const target = e.target;
+              target.setStyle({
+                weight: 3,
+                color: '#8B4513',
+                fillOpacity: 0.9,
+              });
+            },
+            mouseout: (e) => {
+              geoJsonLayer.resetStyle(e.target);
+            },
+          });
+        }
+      },
+    });
+
+    geoJsonLayer.addTo(map);
+    layerRef.current = geoJsonLayer;
+
+    return () => {
+      if (layerRef.current) {
+        map.removeLayer(layerRef.current);
+      }
+    };
+  }, [data, map]);
+
+  return null;
+};
+
 export const ParisMapPrices = () => {
   const [geoData, setGeoData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -60,58 +127,6 @@ export const ParisMapPrices = () => {
 
     fetchData();
   }, []);
-
-  const getColor = (price: number) => {
-    if (price >= 15000) return '#8B4513';
-    if (price >= 13000) return '#A0522D';
-    if (price >= 11000) return '#CD853F';
-    if (price >= 10000) return '#DEB887';
-    return '#F5DEB3';
-  };
-
-  const style = (feature: any) => {
-    const arrondissement = feature.properties.c_ar;
-    const priceInfo = priceData[arrondissement];
-    const price = priceInfo ? priceInfo.price : 0;
-
-    return {
-      fillColor: getColor(price),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      fillOpacity: 0.7,
-    };
-  };
-
-  const onEachFeature = (feature: any, layer: any) => {
-    const arrondissement = feature.properties.c_ar;
-    const priceInfo = priceData[arrondissement];
-
-    if (priceInfo) {
-      const formattedPrice = priceInfo.price.toLocaleString('fr-FR');
-      layer.bindPopup(`
-        <div style="font-family: sans-serif;">
-          <strong style="font-size: 1.1em;">Paris ${priceInfo.label}</strong><br/>
-          <span style="color: #8B4513; font-weight: 600; font-size: 1.2em;">${formattedPrice} €/m²</span>
-        </div>
-      `);
-
-      layer.on({
-        mouseover: (e: any) => {
-          const layer = e.target;
-          layer.setStyle({
-            weight: 3,
-            color: '#8B4513',
-            fillOpacity: 0.9,
-          });
-        },
-        mouseout: (e: any) => {
-          const layer = e.target;
-          layer.setStyle(style(feature));
-        },
-      });
-    }
-  };
 
   if (loading) {
     return (
@@ -142,14 +157,7 @@ export const ParisMapPrices = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {geoData && (
-            <GeoJSON 
-              key="paris-arrondissements" 
-              data={geoData} 
-              style={style} 
-              onEachFeature={onEachFeature} 
-            />
-          )}
+          <GeoJSONLayer data={geoData} />
         </MapContainer>
       </div>
 
